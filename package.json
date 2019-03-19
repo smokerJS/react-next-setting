@@ -12,6 +12,7 @@
     "next": "^8.0.3",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
-    "semantic-ui-react": "^0.86.0"
+    "semantic-ui-react": "^0.86.0",
+    "webpack": "^4.29.6"
   }
 }
