@@ -1,0 +1,17 @@
+{
+  "name": "react-next-setting",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/smokerJS/react-next-setting.git",
+  "author": "“Jung, <“smokerjs@stunitas.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "next"
+  },
+  "dependencies": {
+    "next": "^8.0.3",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4",
+    "semantic-ui-react": "^0.86.0"
+  }
+}
