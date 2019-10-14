@@ -1,14 +1,13 @@
-import React, { Component } from 'react';
-import Link from 'next/link';
-import Layout from '../components/Layout';
+import React from 'react';
+import Helmet from 'react-helmet';
+import scss from '@styles/index.scss';
+import Hello from '@/Hello';
 
-export default class Index extends Component {
-  render() {
-    return (
-      <Layout>
-        <div>Hello, World!</div>
-        <Link href='/post'><a>Post</a></Link>
-      </Layout>
-    )
-  }
-}
+const Index = () => (
+  <React.Fragment>
+    <Helmet title="Main Page" />
+    <Hello/>
+  </React.Fragment>
+)
+
+export default Index;
