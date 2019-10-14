@@ -1,7 +1,10 @@
 import React from 'react';
 
 const Hello = () => (
-    <div className="index-hello">Hello!</div>
+    <React.Fragment>
+        <div className="index-hello">Hello!</div>
+        <img src={require('@images/img-test.png')}/>
+    </React.Fragment>
 )
 
 export default Hello;
