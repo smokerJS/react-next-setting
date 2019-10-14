@@ -7,10 +7,10 @@ export default class RootDocument extends Document {
                 <Head>
                     <meta charSet="utf-8" />
                     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no" />
-                    <meta name="description" content=""/>
-                    <meta name="keywords" content="" />
-                    {/* <link rel="shortcut icon" href="/static/favicon.ico" /> 파비콘 */}
-                    {/* <link rel="stylesheet" href="" /> 스타일시트 */}
+                    <meta name="description" content="next.js default setting"/>
+                    <meta name="keywords" content="react, next" />
+                    <link rel="shortcut icon" href="../static/icon-smoker.png"/>
+                    {/* <link rel="stylesheet" href="" /> 외부스타일시트 */}
                 </Head>
                 <body>
                     <Main />
