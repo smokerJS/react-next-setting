@@ -1,13 +1,13 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import scss from '@styles/index.scss';
 import Hello from '@/Hello';
+import '@styles/index.scss';
 
 const Index = () => (
-  <React.Fragment>
+  <>
     <Helmet title="Main Page" />
-    <Hello/>
-  </React.Fragment>
-)
+    <Hello />
+  </>
+);
 
 export default Index;
