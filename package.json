@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "repository": "https://github.com/smokerJS/react-next-setting.git",
-  "author": "“Jung, <“smokerjs@stunitas.com>",
+  "author": "smokerJS <smokerjs.dev@gmail.com>",
   "license": "MIT",
   "scripts": {
     "start": "next"
