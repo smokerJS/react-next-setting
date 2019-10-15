@@ -1,10 +1,10 @@
 import React from 'react';
-import scss from '@styles/layout/header.scss';
+import '@styles/layout/header.scss';
 
-const Header = ()=> (
-    <header>
+const Header = () => (
+  <header>
         header
-    </header>
+  </header>
 );
 
 export default Header;
