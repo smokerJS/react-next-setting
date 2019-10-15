@@ -6,7 +6,9 @@
   "author": "smokerJS <smokerjs.dev@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "next"
+    "start": "next",
+    "build": "next build",
+    "export": "next export"
   },
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
