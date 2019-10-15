@@ -11,9 +11,6 @@
     "export": "next export",
     "fix": "eslint --fix 'src/**/*.{js,jsx}'"
   },
-  "engine": {
-    "node": "^10.13.0"
-  },
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
     "@zeit/next-sass": "^1.0.1",
@@ -22,6 +19,7 @@
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-react-app": "^5.0.2",
     "eslint-loader": "^3.0.2",
+    "eslint-plugin-flowtype": "^4.3.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.16.0",

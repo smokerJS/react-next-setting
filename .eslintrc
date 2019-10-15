@@ -1,7 +1,7 @@
 {
   "parser": "babel-eslint",
   "extends": ["react-app","airbnb"],
-  "plugins": ["react", "jsx-a11y", "import", "react-hooks"],
+  "plugins": ["react", "jsx-a11y", "import", "react-hooks", "flowtype"],
   "rules": {
     "react/jsx-filename-extension": 0,
     "indent": ["error", 2],
