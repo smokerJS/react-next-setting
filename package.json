@@ -9,7 +9,7 @@
     "start": "next",
     "build": "next build",
     "export": "next export",
-    "fix": "eslint --fix layout/*.{js,jsx}"
+    "fix": "eslint --fix pages/*.{js,jsx}"
   },
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
