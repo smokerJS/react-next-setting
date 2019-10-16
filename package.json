@@ -5,6 +5,9 @@
   "repository": "https://github.com/smokerJS/react-next-setting.git",
   "author": "smokerJS <smokerjs.dev@gmail.com>",
   "license": "MIT",
+  "engine": {
+    "node": "^10.13.0"
+  },
   "scripts": {
     "start": "next",
     "build": "next build",
