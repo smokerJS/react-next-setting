@@ -11,7 +11,7 @@
   "scripts": {
     "start": "next",
     "build": "next build",
-    "export": "next export",
+    "export": "rimraf .next && next build && next export",
     "fix": "eslint --fix pages/*.{js,jsx}"
   },
   "dependencies": {
@@ -34,6 +34,7 @@
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-helmet": "^5.2.1",
+    "rimraf": "^3.0.0",
     "sass-loader": "^8.0.0",
     "sass-resources-loader": "^2.0.1",
     "url-loader": "^2.2.0",
