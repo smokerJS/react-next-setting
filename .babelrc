@@ -19,6 +19,7 @@
    ["@babel/transform-runtime", {
       "corejs": 3
     }],
+    ["@babel/plugin-proposal-decorators", { "legacy": true }],
     "@babel/plugin-proposal-optional-chaining",
     "@babel/plugin-proposal-class-properties",
     "@babel/plugin-transform-exponentiation-operator",

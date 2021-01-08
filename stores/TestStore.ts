@@ -31,6 +31,7 @@ class TestStore extends BaseStore<InitialState> {
     this.test = data.data;
   });
 
+  @action
   upTest = (): void => {
     this.test += 1;
   };

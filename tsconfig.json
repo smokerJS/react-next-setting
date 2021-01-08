@@ -14,10 +14,10 @@
       "esnext"
     ],
     "outDir": "./build",
+    "experimentalDecorators": true,
     "resolveJsonModule": true,
     "strict": true,
     "moduleResolution": "node",
-    "experimentalDecorators": true,
     "noEmit": true,
     "esModuleInterop": true,
     "noImplicitAny": true,
