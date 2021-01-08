@@ -2,27 +2,23 @@ import { flow, action, observable, makeObservable } from 'mobx';
 import axios from 'axios';
 import BaseStore from './BaseStore';
 
-export interface InitialState {
-  test: number;
-}
-
-export const initialState: InitialState = {
+export const INITIAL_STATE = {
   test: 123456888,
 };
 
-class TestStore extends BaseStore<InitialState> {
+class TestStore extends BaseStore<typeof INITIAL_STATE> {
   @observable
   test!: number;
 
-  constructor(initialData: InitialState) {
+  constructor(initialState = INITIAL_STATE) {
     super();
-    this.init(initialData);
+    this.init(initialState);
     makeObservable(this);
   }
 
-  init = (initialData: InitialState): void => {
-    const { test } = initialData;
-    this.test = test || initialState.test;
+  init = (initialState = INITIAL_STATE): void => {
+    const { test } = initialState;
+    this.test = test || INITIAL_STATE.test;
   };
 
   @action.bound

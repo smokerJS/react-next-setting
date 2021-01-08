@@ -8,26 +8,23 @@ const isServer = typeof window === 'undefined';
 
 enableStaticRendering(isServer);
 
-const initialRoot = {
-  TestStore,
-  NumberStore,
-};
-
 class RootStore {
-  stores = {};
+  stores = {
+    TestStore: new TestStore(),
+    NumberStore: new NumberStore(),
+  };
 
-  constructor(initialData: any) {
-    Object.keys(initialData).forEach((key: string) => {
-      this.stores[key] = new initialRoot[key](initialData[key]);
-    });
+  constructor(initialState: any) {
+    this.hydrate(initialState);
     makeAutoObservable(this);
   }
 
-  hydrate(initialData) {
-    for (const key of Object.keys(this.stores)) {
-      initialData[key] && this.stores[key].hydrate(initialData[key]);
-    }
-  }
+  hydrate = (initialState: any) => {
+    initialState.TestStore &&
+      this.stores.TestStore.hydrate(initialState.TestStore);
+    initialState.NumberStore &&
+      this.stores.NumberStore.hydrate(initialState.NumberStore);
+  };
 }
 
 let rootStore: RootStore | null = null;
