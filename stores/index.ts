@@ -7,7 +7,6 @@ import NumberStore from './NumberStore';
 const isServer = typeof window === 'undefined';
 
 enableStaticRendering(isServer);
-
 class RootStore {
   stores = {
     TestStore: new TestStore(),
@@ -19,11 +18,11 @@ class RootStore {
     makeAutoObservable(this);
   }
 
-  hydrate = (initialState: any) => {
-    initialState.TestStore &&
-      this.stores.TestStore.hydrate(initialState.TestStore);
-    initialState.NumberStore &&
-      this.stores.NumberStore.hydrate(initialState.NumberStore);
+  hydrate = (hydrateState: any) => {
+    hydrateState.TestStore &&
+      this.stores.TestStore.hydrate(hydrateState.TestStore);
+    hydrateState.NumberStore &&
+      this.stores.NumberStore.hydrate(hydrateState.NumberStore);
   };
 }
 

@@ -1,11 +1,12 @@
-type Data<T> = {
+type State<T> = {
   [P in keyof T]: T[P];
 };
 
-abstract class BaseStore<T> {
-  abstract init: (initialData: Data<T>) => void;
+abstract class BaseStore<InitialState> {
+  abstract init: (initialState: State<InitialState>) => void;
 
-  public hydrate = (hydrateData: Data<T>): void => this.init(hydrateData);
+  public hydrate = (hydrateState: State<InitialState>): void =>
+    this.init(hydrateState);
 }
 
 export default BaseStore;

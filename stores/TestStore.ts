@@ -2,7 +2,7 @@ import { flow, action, observable, makeObservable } from 'mobx';
 import axios from 'axios';
 import BaseStore from './BaseStore';
 
-export const INITIAL_STATE = {
+const INITIAL_STATE = {
   test: 123456888,
 };
 

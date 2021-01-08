@@ -1,7 +1,7 @@
 import { action, observable, makeObservable } from 'mobx';
 import BaseStore from './BaseStore';
 
-export const INITIAL_STATE = {
+const INITIAL_STATE = {
   number: 100,
 };
 
