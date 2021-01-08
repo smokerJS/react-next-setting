@@ -1,19 +1,11 @@
-type State<T> = {
-  [P in keyof T]: T[P]
-}
+type Data<T> = {
+  [P in keyof T]: T[P];
+};
 
-class BaseStore<T> {
-  constructor(initialData: T) {
-    this.init(initialData);
-  }
+abstract class BaseStore<T> {
+  abstract init: (initialData: Data<T>) => void;
 
-  private init = (initialData: T): void => {
-    for (const key of Object.keys(initialData)) {
-      this[key in keyof T] = initialData[key];
-    }
-  };
-
-  protected hydrate = (initialData: T): void => this.init(initialData);
+  public hydrate = (hydrateData: Data<T>): void => this.init(hydrateData);
 }
 
 export default BaseStore;

@@ -14,11 +14,16 @@ class TestStore extends BaseStore<InitialState> {
   test!: number;
 
   constructor(initialData: InitialState) {
-    super({ ...initialState, ...initialData });
+    super();
+    this.init(initialData);
     makeAutoObservable(this, {
       action: action.bound,
     });
   }
+
+  init = (initialData: InitialState): void => {
+    this.test = initialData.test;
+  };
 
   action = flow(function* generator(this: TestStore) {
     const data = yield axios.get(
