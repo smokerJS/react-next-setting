@@ -16,9 +16,9 @@ class TestStore extends BaseStore<typeof INITIAL_STATE> {
     makeObservable(this);
   }
 
-  init = (initialState = INITIAL_STATE): void => {
+  init = (initialState: typeof INITIAL_STATE): void => {
     const { test } = initialState;
-    this.test = test || INITIAL_STATE.test;
+    test && (this.test = test);
   };
 
   @action.bound

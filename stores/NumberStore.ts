@@ -15,9 +15,9 @@ class NumberStore extends BaseStore<typeof INITIAL_STATE> {
     makeObservable(this);
   }
 
-  init = (initialState = INITIAL_STATE): void => {
+  init = (initialState: typeof INITIAL_STATE): void => {
     const { number } = initialState;
-    this.number = number || INITIAL_STATE.number;
+    number && (this.number = number);
   };
 
   @action
