@@ -2,35 +2,23 @@ import { makeAutoObservable } from 'mobx';
 import { enableStaticRendering, MobXProviderContext } from 'mobx-react';
 import React from 'react';
 import TestStore from './TestStore';
-
-export interface GetStores {
-  <Stores extends any[]>(stores: Stores): Stores;
-}
-
-const getStores: GetStores = stores => stores;
-
-const stores = [TestStore];
+import NumberStore from './NumberStore';
 
 const isServer = typeof window === 'undefined';
 
 enableStaticRendering(isServer);
 
-let store = null;
-
 const initialRoot = {
-  TestStore: {
-    Store: TestStore,
-  },
+  TestStore,
+  NumberStore,
 };
 
 class RootStore {
-  stores = {
-    TestStore,
-  };
+  stores = {};
 
-  constructor(initialData = initialRoot) {
+  constructor(initialData: any) {
     Object.keys(initialData).forEach((key: string) => {
-      this.stores[key] = new initialRoot[key].Store(initialData[key]);
+      this.stores[key] = new initialRoot[key](initialData[key]);
     });
     makeAutoObservable(this);
   }
@@ -42,8 +30,10 @@ class RootStore {
   }
 }
 
-function initializeStore(initialData): RootStore {
-  const _store = store || new RootStore(initialData);
+let rootStore: RootStore | null = null;
+
+function initializeStore(initialData: any): RootStore {
+  const _store = rootStore || new RootStore(initialData);
   if (isServer) {
     return _store;
   }
@@ -52,7 +42,7 @@ function initializeStore(initialData): RootStore {
     _store.hydrate(initialData);
   }
 
-  if (!store) store = _store;
+  if (!rootStore) rootStore = _store;
 
   return _store;
 }

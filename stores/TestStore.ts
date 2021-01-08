@@ -16,12 +16,13 @@ class TestStore extends BaseStore<InitialState> {
 
   constructor(initialData: InitialState) {
     super();
-    makeObservable(this);
     this.init(initialData);
+    makeObservable(this);
   }
 
   init = (initialData: InitialState): void => {
-    this.test = initialData.test;
+    const { test } = initialData;
+    this.test = test || initialState.test;
   };
 
   @action.bound
