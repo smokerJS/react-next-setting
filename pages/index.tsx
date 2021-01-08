@@ -2,17 +2,24 @@ import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { observer } from 'mobx-react';
+import NumberStore from 'stores/NumberStore';
+import { useStore } from 'stores';
 import Layout, { siteTitle } from '../components/layout';
-import TestStore from '../stores/TestStore';
 
 const Home: React.FC = () => {
+  const { number, upNumber } = useStore('NumberStore') as NumberStore;
+
   return (
     <Layout home>
       <Head>
         <title>{siteTitle}</title>
       </Head>
       <div>
-        <Link href="/test">test</Link>
+        {number}
+        <button type="button" onClick={upNumber}>
+          upNumber
+        </button>
+        <Link href="/test">go test page</Link>
       </div>
     </Layout>
   );

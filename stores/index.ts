@@ -19,6 +19,9 @@ class RootStore {
   }
 
   hydrate = (hydrateState: any) => {
+    if (!hydrateState) {
+      return;
+    }
     hydrateState.TestStore &&
       this.stores.TestStore.hydrate(hydrateState.TestStore);
     hydrateState.NumberStore &&
@@ -28,14 +31,14 @@ class RootStore {
 
 let rootStore: RootStore | null = null;
 
-function initializeStore(initialData: any): RootStore {
-  const _store = rootStore || new RootStore(initialData);
+function initializeStore(initialState: any): RootStore {
+  const _store = rootStore || new RootStore(initialState);
   if (isServer) {
     return _store;
   }
 
-  if (initialData) {
-    _store.hydrate(initialData);
+  if (initialState) {
+    _store.hydrate(initialState);
   }
 
   if (!rootStore) rootStore = _store;
