@@ -1,8 +1,7 @@
 import { makeAutoObservable } from 'mobx';
-import { enableStaticRendering } from 'mobx-react';
+import { enableStaticRendering, MobXProviderContext } from 'mobx-react';
 import React from 'react';
 import TestStore from './TestStore';
-import TestStore2 from './TestStore2';
 
 export interface GetStores {
   <Stores extends any[]>(stores: Stores): Stores;
@@ -10,7 +9,7 @@ export interface GetStores {
 
 const getStores: GetStores = stores => stores;
 
-const stores = [TestStore, TestStore2];
+const stores = [TestStore];
 
 const isServer = typeof window === 'undefined';
 
@@ -22,13 +21,12 @@ const initialRoot = {
   TestStore: {
     Store: TestStore,
   },
-  TestStore2: {
-    Store: TestStore2,
-  },
 };
 
 class RootStore {
-  stores = {};
+  stores = {
+    TestStore,
+  };
 
   constructor(initialData = initialRoot) {
     Object.keys(initialData).forEach((key: string) => {
@@ -44,7 +42,7 @@ class RootStore {
   }
 }
 
-function initializeStore(initialData) {
+function initializeStore(initialData): RootStore {
   const _store = store || new RootStore(initialData);
   if (isServer) {
     return _store;
@@ -59,7 +57,10 @@ function initializeStore(initialData) {
   return _store;
 }
 
-export function useStore<T>(initialState: T) {
-  return React.useMemo(() => initializeStore(initialState), [initialState])
-    .stores;
+export function createStores<T>(initialState: T): RootStore {
+  return React.useMemo(() => initializeStore(initialState), [initialState]);
 }
+
+export const useStore = (storeName: string): Record<string, any> => {
+  return React.useContext(MobXProviderContext)[storeName];
+};

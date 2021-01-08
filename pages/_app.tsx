@@ -1,13 +1,13 @@
 import React from 'react';
 import { Provider } from 'mobx-react';
 import type { AppProps } from 'next/app';
-import { useStore } from '../stores';
+import { createStores } from '../stores';
 
 const App = (props: AppProps): JSX.Element => {
   const { Component, pageProps } = props;
-  const store = useStore(pageProps.initialState);
+  const { stores } = createStores(pageProps.initialState);
   return (
-    <Provider {...store}>
+    <Provider {...stores}>
       <Component {...pageProps} />
     </Provider>
   );

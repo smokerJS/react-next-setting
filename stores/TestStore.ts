@@ -1,4 +1,4 @@
-import { flow, action, observable } from 'mobx';
+import { flow, action, observable, makeObservable } from 'mobx';
 import axios from 'axios';
 import BaseStore from './BaseStore';
 
@@ -16,6 +16,7 @@ class TestStore extends BaseStore<InitialState> {
 
   constructor(initialData: InitialState) {
     super();
+    makeObservable(this);
     this.init(initialData);
   }
 
