@@ -1,8 +1,8 @@
 import { makeAutoObservable } from 'mobx';
 import { enableStaticRendering, MobXProviderContext } from 'mobx-react';
 import React from 'react';
-import TestStore from './TestStore';
-import NumberStore from './NumberStore';
+import TestStore from 'stores/TestStore';
+import NumberStore from 'stores/NumberStore';
 
 const isServer = typeof window === 'undefined';
 

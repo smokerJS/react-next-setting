@@ -1,14 +1,18 @@
 import { flow, action, observable, makeObservable } from 'mobx';
 import axios from 'axios';
-import BaseStore from './BaseStore';
+import BaseStore from 'stores/BaseStore';
 
 const INITIAL_STATE = {
   test: 123456888,
+  testNumer: -6,
 };
 
 class TestStore extends BaseStore<typeof INITIAL_STATE> {
   @observable
   test!: number;
+
+  @observable
+  testNumer!: number;
 
   constructor(initialState = INITIAL_STATE) {
     super();
@@ -17,8 +21,9 @@ class TestStore extends BaseStore<typeof INITIAL_STATE> {
   }
 
   init = (initialState: typeof INITIAL_STATE): void => {
-    const { test } = initialState;
+    const { test, testNumer } = initialState;
     test && (this.test = test);
+    testNumer && (this.testNumer = testNumer);
   };
 
   @action.bound
@@ -32,6 +37,11 @@ class TestStore extends BaseStore<typeof INITIAL_STATE> {
   @action
   upTest = (): void => {
     this.test += 1;
+  };
+
+  @action
+  upTestNumber = (): void => {
+    this.testNumer += 1;
   };
 }
 

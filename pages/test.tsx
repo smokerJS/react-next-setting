@@ -8,10 +8,12 @@ import { useStore } from 'stores';
 import TestStore from 'stores/TestStore';
 import NumberStore from 'stores/NumberStore';
 
-import Layout, { siteTitle } from '../components/layout';
+import Layout, { siteTitle } from 'components/layout';
 
 const Home: React.FC = props => {
-  const { test, upTest } = useStore('TestStore') as TestStore;
+  const { test, upTest, testNumer, upTestNumber } = useStore(
+    'TestStore'
+  ) as TestStore;
   const { number, upNumber } = useStore('NumberStore') as NumberStore;
   return (
     <Layout home>
@@ -19,15 +21,27 @@ const Home: React.FC = props => {
         <title>{siteTitle}</title>
       </Head>
       <div>
-        <Link href="/">go index page</Link>
-        {test}
-        <button type="button" onClick={upTest}>
-          up
-        </button>
-        {number}
-        <button type="button" onClick={upNumber}>
-          upNumber
-        </button>
+        <div>
+          TestStore test getServerSideProps : {test}
+          <button type="button" onClick={upTest}>
+            up
+          </button>
+          <br />
+          <br />
+          TestStore testNumber : {testNumer}
+          <button type="button" onClick={upTestNumber}>
+            upTestNumber
+          </button>
+          <br />
+          <br />
+          NumberStore number : {number}
+          <button type="button" onClick={upNumber}>
+            upNumber
+          </button>
+          <br />
+          <br />
+          <Link href="/">go index page</Link>
+        </div>
       </div>
     </Layout>
   );
